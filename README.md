@@ -1,1 +1,1 @@
-# rb-101
+# RB101 Programming Foundations
