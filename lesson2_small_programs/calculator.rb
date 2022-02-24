@@ -11,21 +11,18 @@ number2 = Kernel.gets.chomp()
 
 prompt('What operation do you wish to perform')
 prompt('1) Addition 2) Subtraction 3) Multiplication 4) Division')
-operation = Kernel.gets.chomp()
+operation = Kernel.gets.chomp().to_i
 
-case operation
-when '1'
-  result = number1.to_i + number2.to_i
-  prompt("#{number1} + #{number2} = #{result}")
-when '2'
-  result = number1.to_i - number2.to_i
-  prompt("#{number1} - #{number2} = #{result}")
-when '3'
-  result = number1.to_i * number2.to_i
-  prompt("#{number1} * #{number2} = #{result}")
-when '4'
-  result = number1.to_f / number2.to_f
-  prompt("#{number1} / #{number2} = #{result}")
-else
-  prompt('I\'m unsure what to do!')
-end
+result = case operation
+         when 1
+           number1.to_i + number2.to_i
+         when 2
+           number1.to_i - number2.to_i
+         when 3
+           number1.to_i * number2.to_i
+         when 4
+           number1.to_f / number2.to_f
+         end
+
+operators = %w(+ - * /)
+prompt("#{number1} #{operators[operation - 1]} #{number2} = #{result}")
