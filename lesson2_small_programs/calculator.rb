@@ -1,18 +1,16 @@
-# (x) ask the user for two numbers
-# (x) ask the user what type of operation to perform
-# addition, subtraction, multiplication, division
-# (x) perform the operation on the given numbers
-# (x) output the result
+def prompt(message)
+  Kernel.puts("=> #{message}")
+end
 
-Kernel.puts('Simple Calculator')
+prompt('Simple Calculator')
 Kernel.puts('')
-Kernel.puts('Please enter first number:')
+prompt('Please enter first number')
 number1 = Kernel.gets.chomp()
-Kernel.puts('Please enter second number:')
+prompt('Please enter second number')
 number2 = Kernel.gets.chomp()
 
-Kernel.puts('What operation do you wish to perform?')
-Kernel.puts('1) Addition 2) Subtraction 3) Multiplication 4) Division')
+prompt('What operation do you wish to perform')
+prompt('1) Addition 2) Subtraction 3) Multiplication 4) Division')
 operation = Kernel.gets.chomp()
 
 case operation
