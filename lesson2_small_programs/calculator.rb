@@ -2,27 +2,60 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-prompt('Simple Calculator')
-Kernel.puts('')
-prompt('Please enter first number')
-number1 = Kernel.gets.chomp()
-prompt('Please enter second number')
-number2 = Kernel.gets.chomp()
+def get_operands
+  num = ''
+  loop do
+    num = Float(gets, exception: false)
+    puts num ? break : 'Invalid number'
+  end
+  num
+end
 
-prompt('What operation do you wish to perform')
-prompt('1) Addition 2) Subtraction 3) Multiplication 4) Division')
-operation = Kernel.gets.chomp().to_i
+loop do
+  prompt('Simple Calculator')
+  Kernel.puts('')
 
-result = case operation
-         when 1
-           number1.to_i + number2.to_i
-         when 2
-           number1.to_i - number2.to_i
-         when 3
-           number1.to_i * number2.to_i
-         when 4
-           number1.to_f / number2.to_f
-         end
+  prompt('Please enter first number')
+  number1 = get_operands()
+  prompt('Please enter second number')
+  number2 = get_operands()
 
-operators = %w(+ - * /)
-prompt("#{number1} #{operators[operation - 1]} #{number2} = #{result}")
+  operator_prompt = <<-MSG
+  What operation do you wish to perform?
+  1) Addition
+  2) Subtraction
+  3) Multiplication
+  4) Division
+  MSG
+
+  prompt(operator_prompt)
+  operation = ''
+  operations = [1, 2, 3, 4]
+  loop do
+    operation = Kernel.gets.chomp().to_i
+    if operations.include?(operation)
+      break
+    else
+      puts "Hmm... #{operation} ???"
+    end
+  end
+
+  result = case operation
+           when 1
+             number1 + number2
+           when 2
+             number1 - number2
+           when 3
+             number1 * number2
+           when 4
+             number1 / number2
+           end
+
+  operators = %w(+ - * /)
+  prompt("#{number1} #{operators[operation - 1]} #{number2} = #{result}")
+
+  prompt("Do you need to calculate again? (Y)es - <enter>")
+  input = Kernel.gets().chomp().downcase
+  break unless input.start_with?('y')
+  Kernel.puts('Thank you for using the calculator. Goodbye.')
+end
