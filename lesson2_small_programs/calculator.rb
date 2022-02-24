@@ -16,16 +16,16 @@ operation = Kernel.gets.chomp()
 case operation
 when '1'
   result = number1.to_i + number2.to_i
-  Kernel.puts("#{number1} + #{number2} = #{result}")
+  prompt("#{number1} + #{number2} = #{result}")
 when '2'
   result = number1.to_i - number2.to_i
-  Kernel.puts("#{number1} - #{number2} = #{result}")
+  prompt("#{number1} - #{number2} = #{result}")
 when '3'
   result = number1.to_i * number2.to_i
-  Kernel.puts("#{number1} * #{number2} = #{result}")
+  prompt("#{number1} * #{number2} = #{result}")
 when '4'
   result = number1.to_f / number2.to_f
-  Kernel.puts("#{number1} / #{number2} = #{result}")
+  prompt("#{number1} / #{number2} = #{result}")
 else
-  Kernel.puts('I\'m unsure what to do!')
+  prompt('I\'m unsure what to do!')
 end
