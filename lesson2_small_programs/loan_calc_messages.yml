@@ -1,4 +1,5 @@
-heading: "Awh Mark III Loan Calculator"
+heading: "\nAwh Mark III Loan Calculator\n
+          \b----------------------------"
 loan_amt: "Enter the amount you wish to borrow: $"
 annual_interest_rate: "Enter the annual interest rate (APR): "
 duration: "Enter the length of the loan (Months): "
