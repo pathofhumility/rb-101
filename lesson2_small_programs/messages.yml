@@ -1,1 +1,9 @@
 welcome: "** Awh-II Basic Calculator **"
+
+operator_prompt: "
+What operation do you wish to perform?\n
++) Addition\n
+-) Subtraction\n
+*) Multiplication\n
+/) Division
+"

@@ -23,19 +23,19 @@ loop do
   prompt('Please enter second number')
   number2 = get_operands()
 
-  operator_prompt = <<-MSG
-  What operation do you wish to perform?
-  1) Addition
-  2) Subtraction
-  3) Multiplication
-  4) Division
-  MSG
+  # operator_prompt = <<-MSG
+  # What operation do you wish to perform?
+  # +) Addition
+  # -) Subtraction
+  # *) Multiplication
+  # /) Division
+  # MSG
 
-  prompt(operator_prompt)
+  prompt(MESSAGES['operator_prompt'])
   operation = ''
-  operations = [1, 2, 3, 4]
+  operations = %w(+ - * /)
   loop do
-    operation = Kernel.gets.chomp().to_i
+    operation = Kernel.gets.chomp()
     if operations.include?(operation)
       break
     else
@@ -44,21 +44,20 @@ loop do
   end
 
   result = case operation
-           when 1
+           when '+'
              number1 + number2
-           when 2
+           when '-'
              number1 - number2
-           when 3
+           when '*'
              number1 * number2
-           when 4
+           when '/'
              number1 / number2
            end
 
-  operators = %w(+ - * /)
-  prompt("#{number1} #{operators[operation - 1]} #{number2} = #{result}")
+  prompt("#{number1} #{operation} #{number2} = #{result}")
 
   prompt("Do you need to calculate again? (Y)es - <enter>")
   input = Kernel.gets().chomp().downcase
   break unless input.start_with?('y')
-  Kernel.puts('Thank you for using the calculator. Goodbye.')
 end
+Kernel.puts('Thank you for using the calculator. Goodbye.')
