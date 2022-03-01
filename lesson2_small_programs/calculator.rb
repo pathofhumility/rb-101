@@ -1,3 +1,6 @@
+require 'yaml'
+
+MESSAGES = YAML.load_file('messages.yml')
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
@@ -12,7 +15,7 @@ def get_operands
 end
 
 loop do
-  prompt('Simple Calculator')
+  Kernel.puts(MESSAGES['welcome'])
   Kernel.puts('')
 
   prompt('Please enter first number')
