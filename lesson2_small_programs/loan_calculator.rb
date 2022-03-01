@@ -2,11 +2,11 @@ require 'yaml'
 
 PROMPTS = YAML.load_file('loan_calc_messages.yml')
 
-def headings(message)
+def display_heading(message)
   puts message
 end
 
-def prompt(message)
+def display_prompt(message)
   print ">> #{message}"
 end
 
@@ -25,15 +25,15 @@ def get_input
   end
 end
 
-headings(PROMPTS['heading'])
+display_heading(PROMPTS['heading'])
 
-prompt(PROMPTS['loan_amt'])
+display_prompt(PROMPTS['loan_amt'])
 loan_amount = get_input().to_f
 
-prompt(PROMPTS['annual_interest_rate'])
+display_prompt(PROMPTS['annual_interest_rate'])
 monthly_int_rate = get_input().to_f / 1200
 
-prompt(PROMPTS['duration'])
+display_prompt(PROMPTS['duration'])
 loan_duration = get_input().to_i
 
 monthly_payment = loan_amount *
