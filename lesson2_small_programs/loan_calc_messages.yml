@@ -1,0 +1,4 @@
+heading: "Awh Mark III Loan Calculator"
+loan_amt: "Enter the amount you wish to borrow: $"
+annual_interest_rate: "Enter the annual interest rate (APR): "
+duration: "Enter the length of the loan (Months): "
