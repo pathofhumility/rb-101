@@ -15,6 +15,7 @@ def get_operands
 end
 
 loop do
+  system('clear')
   Kernel.puts(MESSAGES['welcome'])
   Kernel.puts('')
 
