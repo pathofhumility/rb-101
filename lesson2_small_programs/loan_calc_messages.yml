@@ -1,5 +1,6 @@
 heading: "\nAwh Mark III Loan Calculator\n
           \b----------------------------"
+invalid_input: "That's invalid, you must enter a number greater than zero(0)."
 loan_amt: "Enter the amount you wish to borrow: $"
 annual_interest_rate: "Enter the annual interest rate (APR): "
 duration: "Enter the length of the loan (Months): "
