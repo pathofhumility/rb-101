@@ -15,19 +15,28 @@ def display_result(player_choice, computer_choice)
 end
 
 CHOICES = ['rock', 'paper', 'scissors']
-
-player_choice = ''
 loop do
-  prompt("Enter your choice: #{CHOICES.join(', ')}")
-  player_choice = gets.chomp
-  if CHOICES.include?(player_choice)
-    break
-  else
-    prompt('That\'s not a legit choice!')
+  system('clear')
+  player_choice = ''
+  loop do
+    prompt("Enter your choice: #{CHOICES.join(', ')}")
+    player_choice = gets.chomp
+    if CHOICES.include?(player_choice)
+      break
+    else
+      prompt('That\'s not a legit choice!')
+    end
   end
+
+  computer_choice = CHOICES.sample
+
+  puts "Rock, Paper, Scissors throw..."
+  prompt("Your throw : #{player_choice}, Computer's throw: #{computer_choice}.")
+  display_result(player_choice, computer_choice)
+  prompt('Play again?')
+  play_again = gets.chomp
+  break unless play_again.downcase.start_with?('y')
 end
 
-computer_choice = CHOICES.sample
-
-prompt("Player's choice: #{player_choice}, Computer's choice: #{computer_choice}.")
-display_result(player_choice, computer_choice)
+prompt('Thanks for playing Rock, Paper, Scissors!')
+prompt('Good bye')
