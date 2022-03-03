@@ -15,4 +15,6 @@ loop do
   end
 end
 
-puts "Player's choice: #{player_choice}"
+computer_choice = CHOICES.sample
+
+puts "Player's choice: #{player_choice}, Computer's choice: #{computer_choice}."
