@@ -2,19 +2,25 @@ def prompt(message)
   puts ">> #{message}: "
 end
 
+def who_won?(first, second)
+  first == 'rock' && second == 'scissors' ||
+    first == 'paper' && second == 'rock' ||
+    first == 'scissors' && second == 'paper'
+end
+
 def display_result(player_choice, computer_choice)
   if player_choice == computer_choice
-    prompt('The game is a tie!')
-  elsif player_choice == 'rock' && computer_choice == 'scissors' ||
-        player_choice == 'paper' && computer_choice == 'rock' ||
-        player_choice == 'scissors' && computer_choice == 'paper'
+    prompt('It\'s a tie!')
+    return
+  end
+  if who_won?(player_choice, computer_choice)
     prompt('Player wins!')
   else
     prompt('Computer wins!')
   end
 end
 
-CHOICES = ['rock', 'paper', 'scissors']
+CHOICES = %w(rock paper scissors)
 loop do
   system('clear')
   player_choice = ''
