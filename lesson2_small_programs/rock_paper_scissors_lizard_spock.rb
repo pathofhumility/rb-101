@@ -20,7 +20,7 @@ def display_result(player_choice, computer_choice)
   end
 end
 
-CHOICES = %w(rock paper scissors)
+CHOICES = %w(rock paper scissors lizard spock)
 loop do
   system('clear')
   player_choice = ''
@@ -36,13 +36,13 @@ loop do
 
   computer_choice = CHOICES.sample
 
-  puts "Rock, Paper, Scissors throw..."
-  prompt("Your throw : #{player_choice}, Computer's throw: #{computer_choice}.")
+  puts "Rock, Paper, Scissors, Lizard, Spock go..."
+  prompt("Your go : #{player_choice}, Computer's go: #{computer_choice}.")
   display_result(player_choice, computer_choice)
   prompt('Play again?')
   play_again = gets.chomp
   break unless play_again.downcase.start_with?('y')
 end
 
-prompt('Thanks for playing Rock, Paper, Scissors!')
+prompt('Thanks for playing Rock, Paper, Scissors, Lizard, Spock!')
 prompt('Good bye')
