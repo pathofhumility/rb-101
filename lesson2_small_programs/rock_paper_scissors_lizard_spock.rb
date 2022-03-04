@@ -1,13 +1,11 @@
+require 'pry'
+
 def prompt(message)
   puts ">> #{message}: "
 end
 
 def who_won?(first, second)
-  (first == 'rock' && (second == 'scissors' || second == 'lizard')) ||
-    (first == 'paper' && (second == 'rock' || second == 'spock')) ||
-    (first == 'scissors' && (second == 'paper' || second == 'lizard')) ||
-    (first == 'lizard' && (second == 'scissors' || second == 'spock')) ||
-    (first == 'spock' && (second == 'scissors' || second == 'rock'))
+  WIN_LOGIC[first.to_sym].include?(second)
 end
 
 def display_result(player_choice, computer_choice)
@@ -21,6 +19,14 @@ def display_result(player_choice, computer_choice)
     prompt('Computer wins!')
   end
 end
+
+WIN_LOGIC = {
+  rock: %w(scissors lizard),
+  paper: %w(rock spock),
+  scissors: %w(paper lizard),
+  lizard: %w(paper spock),
+  spock: %w(scissors rock)
+}
 
 CHOICES = %w(rock paper scissors lizard spock)
 loop do
