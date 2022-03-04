@@ -3,11 +3,11 @@ def prompt(message)
 end
 
 def who_won?(first, second)
-  WIN_LOGIC[first.to_sym].include?(second)
+  WIN_LOGIC[first].include?(second)
 end
 
 def display_result(player, computer)
-  if player == computer
+  if player == computer.to_sym
     prompt('It\'s a tie!')
     return
   end
@@ -22,21 +22,36 @@ WIN_LOGIC = {
   spock: %w(scissors rock)
 }
 
-CHOICES = %w(rock paper scissors lizard spock)
+THROW_MENU = {
+  r: :rock,
+  p: :paper,
+  s: :scissor,
+  l: :lizard,
+  o: :spock,
+  rock: :rock,
+  paper: :paper,
+  scissors: :scissors,
+  lizard: :lizard,
+  spock: :spock
+}
+
+THROW_CHOICES = %w(rock paper scissors lizard spock)
+
 loop do
   system('clear')
   player_choice = ''
   loop do
-    prompt("Enter your choice: #{CHOICES.join(', ')}")
-    player_choice = gets.chomp
-    if CHOICES.include?(player_choice)
+    prompt("Enter your choice: (R)ock (P)aper (S)cissors (L)izard sp(O)ck")
+    player_choice = gets.chomp.downcase.to_sym
+    if THROW_MENU[player_choice]
+      player_choice = THROW_MENU[player_choice]
       break
     else
       prompt('That\'s not a legit choice!')
     end
   end
 
-  computer_choice = CHOICES.sample
+  computer_choice = THROW_CHOICES.sample
 
   puts "Rock, Paper, Scissors, Lizard, Spock go..."
   prompt("Your go : #{player_choice}, Computer's go: #{computer_choice}.")
