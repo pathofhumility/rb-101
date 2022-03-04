@@ -6,16 +6,12 @@ def who_won?(first, second)
   WIN_LOGIC[first.to_sym].include?(second)
 end
 
-def display_result(player_choice, computer_choice)
-  if player_choice == computer_choice
+def display_result(player, computer)
+  if player == computer
     prompt('It\'s a tie!')
     return
   end
-  if who_won?(player_choice, computer_choice)
-    prompt('Player wins!')
-  else
-    prompt('Computer wins!')
-  end
+  prompt who_won?(player, computer) ? 'Player wins' : 'Computer wins'
 end
 
 WIN_LOGIC = {
