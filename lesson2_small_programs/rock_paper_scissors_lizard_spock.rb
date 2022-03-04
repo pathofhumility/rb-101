@@ -3,9 +3,11 @@ def prompt(message)
 end
 
 def who_won?(first, second)
-  first == 'rock' && second == 'scissors' ||
-    first == 'paper' && second == 'rock' ||
-    first == 'scissors' && second == 'paper'
+  (first == 'rock' && (second == 'scissors' || second == 'lizard')) ||
+    (first == 'paper' && (second == 'rock' || second == 'spock')) ||
+    (first == 'scissors' && (second == 'paper' || second == 'lizard')) ||
+    (first == 'lizard' && (second == 'scissors' || second == 'spock')) ||
+    (first == 'spock' && (second == 'scissors' || second == 'rock'))
 end
 
 def display_result(player_choice, computer_choice)
