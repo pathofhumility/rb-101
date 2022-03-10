@@ -31,6 +31,8 @@ def fun_with_ids
     puts "No surprises."
     puts
 
+    # Variables declared outside the block are reassigned inside the block
+    # Blocks have access to the outer scope, this is ok
     a_outer = 22
     b_outer = "thirty three"
     c_outer = [44]
@@ -40,10 +42,13 @@ def fun_with_ids
     puts "b_outer inside after reassignment is #{b_outer} with an id of: #{b_outer_id} before and: #{b_outer.object_id} after."
     puts "c_outer inside after reassignment is #{c_outer} with an id of: #{c_outer_id} before and: #{c_outer.object_id} after."
     puts "d_outer inside after reassignment is #{d_outer} with an id of: #{d_outer_id} before and: #{d_outer.object_id} after."
-    puts "All ids should change after reassignment."
+    puts "Variables declared outside block and reassigned in block are bound to new values w/ new object ids."
+    puts "NO SURPRISES"
     puts
 
-
+    # New variables are declared and initialized to outer scope variable values.
+    # Again, this is ok, blocks have access to outer scope.
+    # ?_inner and ?_outer are now bound to same object
     a_inner = a_outer
     b_inner = b_outer
     c_inner = c_outer
@@ -67,6 +72,8 @@ def fun_with_ids
   puts "d_outer is #{d_outer} with an id of: #{d_outer_id} BEFORE and: #{d_outer.object_id} AFTER the block."
   puts
 
+  # The variable(s) ?_inner_id were declared inside the block and are not available outside
+  # thus the need for the rescue
   puts "a_inner is #{a_inner} with an id of: #{a_inner_id} INSIDE and: #{a_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
   puts "b_inner is #{b_inner} with an id of: #{b_inner_id} INSIDE and: #{b_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
   puts "c_inner is #{c_inner} with an id of: #{c_inner_id} INSIDE and: #{c_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
