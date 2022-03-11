@@ -1,6 +1,5 @@
-if false
-  greeting = "hello world"
-end
+flag = false
+greeting = 'hello world' if flag
 
 puts greeting.nil?
 
